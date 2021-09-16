@@ -8,6 +8,360 @@ class loe_editor(object):
         self.ws = self.wb[sheet_name]
         self.ws["C3"] = form_dict["customer_name"]   # fill the customer name in sheet
 
+    def fp_requirement_phase_editor(self):
+        '''
+                according to the portal form value to fill in the workdays in LOE spreadsheet
+                :return:
+        '''
+        workshop_days = 0
+        document_creation_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            workshop_days = workshop_days + 1
+        else:
+            pass
+        if self.portal_form["aciornot"] == "yes":
+            workshop_days = workshop_days + 1
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 1
+        elif self.portal_form["deploymentmethod"] == "threat":
+            workshop_days = workshop_days + 1
+            document_creation_days = document_creation_days + 1
+        elif self.portal_form["deploymentmethod"] == "malware":
+            workshop_days = workshop_days + 1
+            document_creation_days = document_creation_days + 1
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            workshop_days = workshop_days + 1
+            document_creation_days = document_creation_days + 1
+        else:
+            workshop_days = workshop_days + 2
+            document_creation_days = document_creation_days + 2
+
+        if "3rdparty" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "trustsec" in self.portal_form.keys():
+            workshop_days = workshop_days + 1
+        if "aaa" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "sslencryption" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "onpremmalware" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "auto" in self.portal_form.keys():
+            workshop_days = workshop_days + 1
+        if "autotest" in self.portal_form.keys():
+            workshop_days = workshop_days + 2
+        if "datamig" in self.portal_form.keys():
+            workshop_days = workshop_days + 0
+
+        # fill the workshop days
+        self.ws["D17"] = workshop_days
+        self.ws["E17"] = workshop_days
+
+        # fill the document creation days
+        self.ws["D18"] = document_creation_days
+        self.ws["E18"] = document_creation_days
+
+    def fp_design_phase_editor(self):
+        '''
+                according to the portal form value to fill in the workdays in LOE spreadsheet
+                :return:
+        '''
+        workshop_days = 1
+        design_document_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            workshop_days = workshop_days + 1
+            design_document_days = design_document_days + 1
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            workshop_days = workshop_days + 1
+            design_document_days = design_document_days + 1
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            design_document_days = design_document_days + 2
+        elif self.portal_form["deploymentmethod"] == "threat":
+            design_document_days = design_document_days + 2.5
+        elif self.portal_form["deploymentmethod"] == "malware":
+            design_document_days = design_document_days + 2.5
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            design_document_days = design_document_days + 3
+        else:
+            design_document_days = design_document_days + 4
+
+        if "3rdparty" in self.portal_form.keys():
+            design_document_days = design_document_days + 0.5
+        if "trustsec" in self.portal_form.keys():
+            design_document_days = design_document_days + 1
+        if "aaa" in self.portal_form.keys():
+            design_document_days = design_document_days + 1
+        if "sslencryption" in self.portal_form.keys():
+            design_document_days = design_document_days + 0.5
+        if "onpremmalware" in self.portal_form.keys():
+            design_document_days = design_document_days + 1
+
+        # fill the workshop days
+        self.ws["D21"] = workshop_days
+        self.ws["E21"] = workshop_days
+
+        # fill the document creation days
+        self.ws["D22"] = design_document_days
+        self.ws["E22"] = design_document_days
+
+    def fp_nip_phase_editor(self):
+        '''
+            according to the portal form value to fill in the workdays in LOE spreadsheet
+            :return:
+        '''
+        documentation_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            documentation_days = documentation_days + 1
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            documentation_days = documentation_days + 1
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            documentation_days = documentation_days + 2
+        elif self.portal_form["deploymentmethod"] == "threat":
+            documentation_days = documentation_days + 3
+        elif self.portal_form["deploymentmethod"] == "malware":
+            documentation_days = documentation_days + 3
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            documentation_days = documentation_days + 3
+        else:
+            documentation_days = documentation_days + 4
+
+        if "3rdparty" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "trustsec" in self.portal_form.keys():
+            documentation_days = documentation_days + 2
+        if "aaa" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "sslencryption" in self.portal_form.keys():
+            documentation_days = documentation_days + 1
+        if "onpremmalware" in self.portal_form.keys():
+            documentation_days = documentation_days + 2
+
+        # fill the document creation days
+        self.ws["D29"] = documentation_days
+        self.ws["E29"] = documentation_days
+
+    def fp_nrfu_phase_editor(self):
+        '''
+                    according to the portal form value to fill in the workdays in LOE spreadsheet
+                    :return:
+        '''
+        documentation_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            documentation_days = documentation_days + 1
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            documentation_days = documentation_days + 1
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            documentation_days = documentation_days + 1
+        elif self.portal_form["deploymentmethod"] == "threat":
+            documentation_days = documentation_days + 2
+        elif self.portal_form["deploymentmethod"] == "malware":
+            documentation_days = documentation_days + 2
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            documentation_days = documentation_days + 2
+        else:
+            documentation_days = documentation_days + 3
+
+        if "3rdparty" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "trustsec" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "aaa" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "sslencryption" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+        if "onpremmalware" in self.portal_form.keys():
+            documentation_days = documentation_days + 0.5
+
+        # fill the document creation days
+        self.ws["D35"] = documentation_days
+        self.ws["E35"] = documentation_days
+
+        if "autotest" in self.portal_form.keys():
+            self.ws["D38"] = 10
+
+    def fp_lab_testing_phase_editor(self):
+        '''
+                    according to the portal form value to fill in the workdays in LOE spreadsheet
+                    :return:
+        '''
+        lab_building_days = 0
+        test_execution_days = 0
+
+        if self.portal_form["sdaornot"] == "yes":
+            pass
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            pass
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            lab_building_days = lab_building_days + 0
+            test_execution_days = test_execution_days + 1
+        elif self.portal_form["deploymentmethod"] == "threat":
+            lab_building_days = lab_building_days + 1
+            test_execution_days = test_execution_days + 1.5
+        elif self.portal_form["deploymentmethod"] == "malware":
+            lab_building_days = lab_building_days + 1
+            test_execution_days = test_execution_days + 1.5
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            lab_building_days = lab_building_days + 2
+            test_execution_days = test_execution_days + 2
+        else:
+            lab_building_days = lab_building_days + 2.5
+            test_execution_days = test_execution_days + 2.5
+
+        if "3rdparty" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 2
+            self.ws["D44"] = 2
+            self.ws["E44"] = 2
+        if "trustsec" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 2
+            test_execution_days = test_execution_days + 2
+        if "aaa" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 1
+            test_execution_days = test_execution_days + 1
+        if "sslencryption" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 1
+            test_execution_days = test_execution_days + 1
+        if "onpremmalware" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 1
+            test_execution_days = test_execution_days + 1
+        if "auto" in self.portal_form.keys():
+            self.ws["D45"] = 10
+            self.ws["E45"] = 10
+        if "autotest" in self.portal_form.keys():
+            test_execution_days = test_execution_days + 5
+        if "datamig" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 1
+
+
+        # lab building days
+        self.ws["D42"] = lab_building_days
+        self.ws["E42"] = lab_building_days
+
+        # testing days
+        self.ws["D43"] = test_execution_days
+        self.ws["E43"] = test_execution_days
+
+    def fp_implementation_phase_editor(self):
+        '''
+                    according to the portal form value to fill in the workdays in LOE spreadsheet
+                    :return:
+        '''
+        basic_configuration_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            basic_configuration_days = basic_configuration_days + 3
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            basic_configuration_days = basic_configuration_days + 3
+        else:
+            pass
+
+        self.ws["D50"] = basic_configuration_days
+        self.ws["E50"] = basic_configuration_days
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            pass
+        elif self.portal_form["deploymentmethod"] == "threat":
+            self.ws["D51"] = 2
+            self.ws["E51"] = 2
+        elif self.portal_form["deploymentmethod"] == "malware":
+            self.ws["D52"] = 1
+            self.ws["E52"] = 1
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            self.ws["D57"] = 3
+            self.ws["E57"] = 3
+        else:
+            self.ws["D57"] = 5
+            self.ws["E57"] = 5
+
+        if "3rdparty" in self.portal_form.keys():
+            self.ws["D59"] = 2
+            self.ws["E59"] = 2
+        if "trustsec" in self.portal_form.keys():
+            self.ws["D56"] = 2
+            self.ws["E56"] = 2
+        if "aaa" in self.portal_form.keys():
+            self.ws["D55"] = 1
+            self.ws["E55"] = 1
+        if "sslencryption" in self.portal_form.keys():
+            self.ws["D54"] = 2
+            self.ws["E54"] = 2
+        if "onpremmalware" in self.portal_form.keys():
+            self.ws["D53"] = 2
+            self.ws["E53"] = 2
+        if "datamig" in self.portal_form.keys():
+            self.ws["D53"] = 1
+            self.ws["E53"] = 1
+
+    def fp_kt_phase_editor(self):
+        '''
+            according to the portal form value to fill in the workdays in LOE spreadsheet
+            :return:
+        '''
+        kt_document_days = 0
+        training_days = 0
+        if self.portal_form["sdaornot"] == "yes":
+            pass
+        else:
+            pass
+
+        if self.portal_form["aciornot"] == "yes":
+            pass
+        else:
+            pass
+
+        if self.portal_form["deploymentmethod"] == "basicfw":
+            kt_document_days = kt_document_days + 2
+            training_days = training_days + 0.5
+        elif self.portal_form["deploymentmethod"] == "threat":
+            kt_document_days = kt_document_days + 3
+            training_days = training_days + 0.5
+        elif self.portal_form["deploymentmethod"] == "malware":
+            kt_document_days = kt_document_days + 4
+            training_days = training_days + 1
+        elif self.portal_form["deploymentmethod"] == "ravpn":
+            kt_document_days = kt_document_days + 3
+            training_days = training_days + 1.5
+        else:
+            kt_document_days = kt_document_days + 5
+            training_days = training_days + 2
+
+        # fill in the kt document days
+        self.ws["D64"] = kt_document_days
+        self.ws["E64"] = kt_document_days
+
+        # fill in the training days
+        self.ws["D65"] = training_days
+        self.ws["E65"] = training_days
+
     def ise_requirement_phase_editor(self):
         '''
         according to the portal form value to fill in the workdays in LOE spreadsheet
@@ -256,8 +610,8 @@ class loe_editor(object):
             self.ws["D57"] = 0.5
             self.ws["E57"] = 0.5
         if "advanceguest" in self.portal_form.keys():
-            self.ws["D46"] = 0.5
-            self.ws["E46"] = 0.5
+            self.ws["D56"] = 0.5
+            self.ws["E56"] = 0.5
 
     def ise_kt_phase(self):
         '''

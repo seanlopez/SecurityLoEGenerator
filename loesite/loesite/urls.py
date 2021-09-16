@@ -20,6 +20,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.portal_display, name="display"),
-    path('output_LoE/', views.ise_form_process, name="downloadpage"),
+    path('ise_LoE', views.portal_display, name="ise_display"),
+    path('firepower_LoE', views.fp_display, name="fp_display"),
+    path('ise_output_LoE/', views.ise_form_process, name="downloadpage"),
+    path('firepower_output_LoE/', views.firepower_form_process, name="downloadpage"),
     path('output_LoE/download', views.file_download, name="download")
 ]

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ISE PDI Project LoE Generator Portal</title>
+    <title>Firepower PDI Project LoE Generator Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap-grid.css">
 
@@ -18,7 +18,7 @@
         <img src="{% static './cisco_log.png' %}" alt="qwe" width="118" height="68" class="d-inline-block align-text-top">
       </div>
       <div>
-          <h3><small class="text-muted">Cisco CX-PS ISE PDI LoE Generator</small></h3>
+          <h3><small class="text-muted">Cisco CX-PS Firepower PDI LoE Generator</small></h3>
       </div>
   </div>
 </div>
@@ -28,7 +28,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-        <form action="/ise_output_LoE/" method="post">
+        <form action="/firepower_output_LoE/" method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Customer Name ?</label>
@@ -43,14 +43,22 @@
                 </select>
             </div> <br />
             <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Is it an ACI environment ?</label>
+                <select class="form-select" aria-label="Default select example" name="aciornot">
+                    <!-- <option selected>Please answer yes or no</option> -->
+                    <option value="yes">Yes</option>
+                    <option selected value="no">No</option>
+                </select>
+            </div> <br />
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">what's the deployment type ?</label>
                 <select class="form-select" aria-label="Default select example" name="deploymentmethod">
                     <!--<option selected>Please select the project deployment type</option> -->
-                    <option selected value="aaa">Basic AAA (Radius + Tacacs + Guest)</option>
-                    <option value="advancedNAC">Advanced NAC (AAA+Posture)</option>
-                    <option value="simplebyod">Simple BYOD (BYOD Only)</option>
-                    <option value="byodNAC"> Mobility NAC (BYOD + Posture or MDM)</option>
-                    <option value="highmobilitycontrol">Advanced Mobility Control (BYOD + Posture + MDM)</option>
+                    <option selected value="basicfw">Basic Firewall</option>
+                    <option value="threat">Threat Control (IPS + File Policy + SI + URL filter)</option>
+                    <option value="malware">Malware (AMP + ThreatGrid)</option>
+                    <option value="ravpn">Remote Access VPN</option>
+                    <option value="ravpnplus">Remote Access VPN + Security Control </option>
                 </select>
             </div> <br />
             <div class="mb-3">
@@ -61,15 +69,19 @@
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="trustsec" name="trustsec">
-                    <label class="form-check-label" for="trustsec">TrustSec Non-SDA</label>
+                    <label class="form-check-label" for="trustsec">TrustSec</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="eapfast" name="eapfast">
-                    <label class="form-check-label" for="eapfast">Anyconnect NAM EAP-Fast(chaining)</label>
+                    <input class="form-check-input" type="checkbox" id="aaa" name="aaa">
+                    <label class="form-check-label" for="eapfast">AAA + Realm</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="advanceguest" name="advancedguest">
-                    <label class="form-check-label" for="advanceguest">Advanced Guest</label>
+                    <input class="form-check-input" type="checkbox" id="sslencryption" name="sslencryption">
+                    <label class="form-check-label" for="advanceguest">SSL Encryption</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="onpremmalware" name="onpremmalware">
+                    <label class="form-check-label" for="advanceguest">On-prem AMP and/or ThreatGrid</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="auto" name="auto">
@@ -81,7 +93,7 @@
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="datamig" name="datamig">
-                    <label class="form-check-label" for="datamig">Existing ISE Migration</label>
+                    <label class="form-check-label" for="datamig">Existing Firewall Migration</label>
                 </div>
             </div> <br />
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -94,7 +106,7 @@
                 <h5 class="card-title">Warning</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Warning</h6>
                 <p class="card-text">The LoE generated by this system can only be a reference, please manually change the man day base on the real project requirement.</p>
-                <a href="{% url 'fp_display' %}" class="card-link">Firepower LoE Generator</a><br />
+                <a href="{% url 'ise_display' %}" class="card-link">ISE LoE Generator</a><br />
                 <a href="#" class="card-link">StealthWatch LoE Generator</a>
             </div>
         </div>
@@ -105,8 +117,8 @@
     <div class="col-sm">col-sm</div>
     <div class="col-sm">col-sm</div>
     <div class="col-sm">col-sm</div>
+    -->
   </div>
-  -->
 </div>
 
 </body>

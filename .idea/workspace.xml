@@ -2,6 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2651874-fa17-4b9c-831f-467ab492628f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/loesite/html_template/firepower_loe_generator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/LoETemplate/Security LoE Template v0.2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/LoETemplate/Security LoE Template v0.2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/downloadpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/downloadpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/ise_loe_generator.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/ise_loe_generator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/loesite/editor/loe_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/editor/loe_editor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/loesite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/loesite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ise-coa-assitant" beforeDir="false" afterPath="$PROJECT_DIR$/../ise-coa-assitant" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../security_documents_auto" beforeDir="false" afterPath="$PROJECT_DIR$/../security_documents_auto" afterDir="false" />
     </list>
@@ -167,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630982165060</updated>
-      <workItem from="1630982167757" duration="37086000" />
+      <workItem from="1630982167757" duration="50229000" />
     </task>
     <servers />
   </component>
@@ -187,7 +195,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LoEGenerator$views.coverage" NAME="views Coverage Results" MODIFIED="1631082974369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loesite/loesite" />
-    <SUITE FILE_PATH="coverage/LoEGenerator$loe_editor__1_.coverage" NAME="loe_editor (1) Coverage Results" MODIFIED="1631181384464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loesite/loesite/editor" />
+    <SUITE FILE_PATH="coverage/LoEGenerator$loe_editor__1_.coverage" NAME="loe_editor (1) Coverage Results" MODIFIED="1631763823851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loesite/loesite/editor" />
     <SUITE FILE_PATH="coverage/LoEGenerator$loe_editor.coverage" NAME="loe_editor Coverage Results" MODIFIED="1631079039756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loesite/editor" />
   </component>
 </project>
