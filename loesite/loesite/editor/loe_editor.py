@@ -915,4 +915,3 @@ class loe_editor(object):
         self.wb.save(output_path + "/" + f"{self.portal_form['customer_name']}_Security_LoE.xlsx")
         return output_file_name
 
-#wb.save("../output_LoE/test.xlsx")
