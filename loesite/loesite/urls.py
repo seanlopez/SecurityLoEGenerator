@@ -22,7 +22,9 @@ urlpatterns = [
     path('', views.portal_display, name="display"),
     path('ise_LoE', views.portal_display, name="ise_display"),
     path('firepower_LoE', views.fp_display, name="fp_display"),
+    path('stealthwatch_LoE', views.stw_display, name="stw_display"),
     path('ise_output_LoE/', views.ise_form_process, name="downloadpage"),
     path('firepower_output_LoE/', views.firepower_form_process, name="downloadpage"),
+    path('stw_output_LoE/', views.stw_form_process, name="downloadpage"),
     path('output_LoE/download', views.file_download, name="download")
 ]

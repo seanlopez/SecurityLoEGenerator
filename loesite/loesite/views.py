@@ -8,6 +8,9 @@ def portal_display(request):
 def fp_display(request):
     return render(request, "firepower_loe_generator.html")
 
+def stw_display(request):
+    return render(request, "stealthwatch_loe_generator.html")
+
 def ise_form_process(request):
     form_dict = request.POST.dict()
     editor = loe_editor.loe_editor(form_dict, "./LoETemplate/Security LoE Template v0.2.xlsx", "ISE")
@@ -35,10 +38,25 @@ def firepower_form_process(request):
     editor.fp_kt_phase_editor()
     filename = editor.save_close_sheet("./output_LoE")
 
-
     return render(request, "downloadpage.html", {"customer_name": form_dict["customer_name"], "filename": filename})
 
     # return render(request, "downloadpage.html", {"customer_name": form_dict["customer_name"], "filename": filename})
+
+def stw_form_process(request):
+    form_dict = request.POST.dict()
+
+    editor = loe_editor.loe_editor(form_dict, "./LoETemplate/Security LoE Template v0.2.xlsx", "Stealthwatch")
+    editor.stw_requirement_phase_editor()
+    editor.stw_design_phase_editor()
+    editor.stw_nip_phase_editor()
+    editor.stw_nrfu_phase_editor()
+    editor.stw_lab_testing_phase_editor()
+    editor.stw_implementation_testing_phase_editor()
+    editor.stw_kt_testing_phase_editor()
+    editor.stw_tunning_phase_editor()
+    filename = editor.save_close_sheet("./output_LoE")
+
+    return render(request, "downloadpage.html", {"customer_name": form_dict["customer_name"], "filename": filename})
 
 def file_download(request):
     get_info = request.GET

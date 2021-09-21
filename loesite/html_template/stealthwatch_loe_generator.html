@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stealtwatch PDI Project LoE Generator Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-grid.css">
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+      <div class="col">
+        {% load static %}
+        <img src="{% static './cisco_log.png' %}" alt="qwe" width="118" height="68" class="d-inline-block align-text-top">
+      </div>
+      <div>
+          <h3><small class="text-muted">Cisco CX-PS Stealtwatch PDI LoE Generator</small></h3>
+      </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+        <form action="/stw_output_LoE/" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Customer Name ?</label>
+                <input type="text" name="customer_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div> <br />
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Which additional license was/were ordered by customer ?</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="endpoint" name="endpoint">
+                    <label class="form-check-label" for="endpoint">Endpoint License (Anyconnect Network Visibility Module)</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="slic" name="slic">
+                    <label class="form-check-label" for="slic">Threat Intelligence Feed (SLIC)</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="sal" name="sal">
+                    <label class="form-check-label" for="sal">Security Analytics and Logging (SAL)</label>
+                </div>
+            </div> <br />
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Whether additional components below will be deployed  ?</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="udpredirector" name="udpredirector">
+                    <label class="form-check-label" for="udpredirector">UDP Redirectors</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="fs" name="fs">
+                    <label class="form-check-label" for="fs">Flow Sensor(FS) </label>
+                </div>
+            </div> <br />
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Additional Requirements  ?</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="iseintegration" name="iseintegration">
+                    <label class="form-check-label" for="iseintegration">ISE Integration</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="3rd" name="3rd">
+                    <label class="form-check-label" for="3rd">3rd Party Integration (Splunk) </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="api" name="api">
+                    <label class="form-check-label" for="api">API required Use Case </label>
+                </div>
+            </div> <br />
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Does customer require tunning service ?</label>
+                <select class="form-select" aria-label="Default select example" name="tunning">
+                    <!--<option selected>Please select the project deployment type</option> -->
+                    <option selected value="no">No</option>
+                    <option value="1m">1 Month Tunning</option>
+                    <option value="3m">1 Quarter Tunning </option>
+                    <option value="6m">Half Year Tunning</option>
+                </select>
+            </div> <br />
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Warning</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Warning</h6>
+                <p class="card-text">The LoE generated by this system can only be a reference, please manually change the man day base on the real project requirement.</p>
+                <a href="{% url 'ise_display' %}" class="card-link">ISE LoE Generator</a><br />
+                <a href="{% url 'fp_display' %}" class="card-link">Firepower LoE Generator</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+      <!--
+    <div class="col-sm">col-sm</div>
+    <div class="col-sm">col-sm</div>
+    <div class="col-sm">col-sm</div>
+    -->
+  </div>
+</div>
+
+</body>
+</html>

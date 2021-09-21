@@ -8,6 +8,265 @@ class loe_editor(object):
         self.ws = self.wb[sheet_name]
         self.ws["C3"] = form_dict["customer_name"]   # fill the customer name in sheet
 
+# Stealtwatch Editor
+    
+    def stw_requirement_phase_editor(self):
+        '''
+                according to the portal form value to fill in the workdays in LOE spreadsheet
+                :return:
+        '''
+        workshop_days = 0.5
+        document_creation_days = 3
+
+        if "endpoint" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "slic" in self.portal_form.keys():
+            workshop_days = workshop_days + 0
+        if "sal" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+        if "api" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+
+        # fill the workshop days
+        self.ws["D17"] = workshop_days
+        self.ws["E17"] = workshop_days
+
+        # fill the document creation days
+        self.ws["D18"] = document_creation_days
+        self.ws["E18"] = document_creation_days
+
+    def stw_design_phase_editor(self):
+        '''
+                according to the portal form value to fill in the workdays in LOE spreadsheet
+                :return:
+        '''
+        workshop_days = 0.5
+        document_creation_days = 4
+
+        if "endpoint" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "slic" in self.portal_form.keys():
+            workshop_days = workshop_days + 0
+            document_creation_days = document_creation_days + 0
+        if "sal" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "api" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+
+        # fill the workshop days
+        self.ws["D21"] = workshop_days
+        self.ws["E21"] = workshop_days
+
+        # fill the document creation days
+        self.ws["D22"] = document_creation_days
+        self.ws["E22"] = document_creation_days
+
+    def stw_nip_phase_editor(self):
+        '''
+                according to the portal form value to fill in the workdays in LOE spreadsheet
+                :return:
+        '''
+        workshop_days = 0.5
+        document_creation_days = 4
+
+        if "endpoint" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "slic" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "sal" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "api" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "udpredirector" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "fs" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+        if "iseintegration" in self.portal_form.keys():
+            workshop_days = workshop_days + 0.5
+            document_creation_days = document_creation_days + 0.5
+
+        # fill the workshop days
+        self.ws["D28"] = workshop_days
+        self.ws["E28"] = workshop_days
+
+        # fill the document creation days
+        self.ws["D29"] = document_creation_days
+        self.ws["E29"] = document_creation_days
+
+    def stw_nrfu_phase_editor(self):
+        '''
+            according to the portal form value to fill in the workdays in LOE spreadsheet
+            :return:
+        '''
+        document_creation_days = 3
+
+        if "endpoint" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+        if "slic" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+        if "sal" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+        if "api" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+        if "iseintegration" in self.portal_form.keys():
+            document_creation_days = document_creation_days + 0.5
+
+        # fill the document creation days
+        self.ws["D35"] = document_creation_days
+        self.ws["E35"] = document_creation_days
+
+    def stw_lab_testing_phase_editor(self):
+        '''
+                        according to the portal form value to fill in the workdays in LOE spreadsheet
+                        :return:
+        '''
+        lab_building_days = 0.5
+        lab_test_days = 0.5
+
+        if "endpoint" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 0.5
+            lab_test_days = lab_test_days + 0.5
+        if "slic" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 0.5
+            lab_test_days = lab_test_days + 0.5
+        if "sal" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 1
+            lab_test_days = lab_test_days + 1
+        if "3rd" in self.portal_form.keys():
+            self.ws["D44"] = 5
+            self.ws["E44"] = 5
+        if "api" in self.portal_form.keys():
+            self.ws["D45"] = 5
+            self.ws["E45"] = 5
+        if "udpredirector" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 0.5
+            lab_test_days = lab_test_days + 0.5
+        if "fs" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 0.5
+            lab_test_days = lab_test_days + 0.5
+        if "iseintegration" in self.portal_form.keys():
+            lab_building_days = lab_building_days + 0.5
+            lab_test_days = lab_test_days + 0.5
+
+        # fill the workshop days
+        self.ws["D42"] = lab_building_days
+        self.ws["E42"] = lab_building_days
+
+        # fill the document creation days
+        self.ws["D43"] = lab_test_days
+        self.ws["E43"] = lab_test_days
+
+    def stw_implementation_testing_phase_editor(self):
+        '''
+                        according to the portal form value to fill in the workdays in LOE spreadsheet
+                        :return:
+        '''
+        installation_days = 0.5
+        basic_configuration_days = 2
+
+        if "endpoint" in self.portal_form.keys():
+            installation_days = installation_days + 0
+            basic_configuration_days = basic_configuration_days + 1
+        if "slic" in self.portal_form.keys():
+            installation_days = installation_days + 0
+            basic_configuration_days = basic_configuration_days + 0.5
+        if "sal" in self.portal_form.keys():
+            installation_days = installation_days + 0
+            basic_configuration_days = basic_configuration_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            self.ws["D53"] = 2
+            self.ws["E53"] = 2
+        if "api" in self.portal_form.keys():
+            pass
+        if "udpredirector" in self.portal_form.keys():
+            installation_days = installation_days + 0.5
+            basic_configuration_days = basic_configuration_days + 0.5
+        if "fs" in self.portal_form.keys():
+            installation_days = installation_days + 0.5
+            basic_configuration_days = basic_configuration_days + 0.5
+        if "iseintegration" in self.portal_form.keys():
+            self.ws["D51"] = 1
+            self.ws["E51"] = 1
+
+        # fill the sw installation days
+        self.ws["D49"] = installation_days
+        self.ws["E49"] = installation_days
+
+        # fill the basic configuration days
+        self.ws["D50"] = basic_configuration_days
+        self.ws["E50"] = basic_configuration_days
+
+    def stw_kt_testing_phase_editor(self):
+        '''
+                        according to the portal form value to fill in the workdays in LOE spreadsheet
+                        :return:
+        '''
+        deck_preparation_days = 4
+        kt_days = 2
+
+        if "endpoint" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 0.5
+            kt_days = kt_days + 0.5
+        if "slic" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 0.5
+            kt_days = kt_days + 0.5
+        if "sal" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 0.5
+            kt_days = kt_days + 0.5
+        if "3rd" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 1
+            kt_days = kt_days + 1
+        if "api" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 1
+            kt_days = kt_days + 1
+        if "iseintegration" in self.portal_form.keys():
+            deck_preparation_days = deck_preparation_days + 1
+            kt_days = kt_days + 1
+
+        # fill the deck preparation days
+        self.ws["D58"] = deck_preparation_days
+        self.ws["E58"] = deck_preparation_days
+
+        # fill the kt days
+        self.ws["D59"] = kt_days
+        self.ws["E59"] = kt_days
+
+    def stw_tunning_phase_editor(self):
+        if self.portal_form["tunning"] == "1m":
+            self.ws["D64"] = 15
+            self.ws["E64"] = 15
+        elif self.portal_form["tunning"] == "3m":
+            self.ws["D64"] = 40
+            self.ws["E64"] = 40
+        elif self.portal_form["tunning"] == "6m":
+            self.ws["D64"] = 80
+            self.ws["E64"] = 80
+        else:
+            self.ws["D64"] = 5
+            self.ws["E64"] = 5
+
+
+# Firepower Editor
+
     def fp_requirement_phase_editor(self):
         '''
                 according to the portal form value to fill in the workdays in LOE spreadsheet
@@ -288,7 +547,9 @@ class loe_editor(object):
         self.ws["E50"] = basic_configuration_days
 
         if self.portal_form["deploymentmethod"] == "basicfw":
-            pass
+            basic_configuration_days = basic_configuration_days + 3
+            self.ws["D50"] = basic_configuration_days
+            self.ws["E50"] = basic_configuration_days
         elif self.portal_form["deploymentmethod"] == "threat":
             self.ws["D51"] = 2
             self.ws["E51"] = 2
@@ -361,6 +622,8 @@ class loe_editor(object):
         # fill in the training days
         self.ws["D65"] = training_days
         self.ws["E65"] = training_days
+
+# ISE Editor
 
     def ise_requirement_phase_editor(self):
         '''
