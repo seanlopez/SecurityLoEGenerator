@@ -26,5 +26,6 @@ urlpatterns = [
     path('ise_output_LoE/', views.ise_form_process, name="downloadpage"),
     path('firepower_output_LoE/', views.firepower_form_process, name="downloadpage"),
     path('stw_output_LoE/', views.stw_form_process, name="downloadpage"),
-    path('output_LoE/download', views.file_download, name="download")
+    path('output_LoE/download', views.file_download, name="download"),
+    path('sendEmail/', views.emailsending, name="sendemail")
 ]

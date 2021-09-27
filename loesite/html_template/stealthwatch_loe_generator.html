@@ -10,6 +10,75 @@
 
 </head>
 
+<script language="JavaScript">
+    function checkForm()
+    {
+        var txt = loeform.buffer.value;
+        var leader_range = loeform.leader.value;
+        if(checknum(txt))
+        {
+            alert("Buffer Reservation Input Error! number only! Buffer 输入错误！！ 只能输入数字！！")
+            return false
+        }
+        if(checkRange(leader_range))
+        {
+            alert("Leading Engineer Effort input Error! the range is 0 - 89, please enter the number only, if no need leading engineer, please enter 0")
+            return false
+        }
+        return true
+    }
+
+    function checknum(String)
+    {
+        var Letters = "1234567890";
+        var i;
+        var c;
+        for( i = 0; i < String.length; i++ )
+        {
+            c = String.charAt( i );
+            if (Letters.indexOf(c) == -1 )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function checkRange(String)
+    {
+        var decadeLetters = "12345678";
+      	var unitLetters = "1234567890";
+      	var d;
+      	var u;
+       	if (String.length >= 3)
+      	{
+          return true;
+        }
+       	else if (String.length == 2)
+        {
+            d = String.charAt(0);
+            u = String.charAt(1);
+            if (decadeLetters.indexOf(d) == -1 || unitLetters.indexOf(u) == -1)
+            {
+                return true;
+            }
+        }
+      	else if (String.length == 1)
+          {
+            u = String.charAt(0);
+            if (unitLetters.indexOf(u) == -1)
+            {
+              return true;
+            }
+          }
+      	else
+          {
+            return true
+          }
+        return false;
+    }
+</script>
+
 <body>
 <div class="container">
   <div class="row">
@@ -28,12 +97,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-        <form action="/stw_output_LoE/" method="post">
+        <form action="/stw_output_LoE/" method="post" name="loeform" onsubmit="return checkForm()">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Customer Name ?</label>
                 <input type="text" name="customer_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div> <br />
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Whether Leading Engineer is needed ? if need, how much effort will be token by Leading Engineer ? (enter number only, the range is 0% - 89%)</label>
+                <input type="text" name="leader" class="form-control" id="leader" aria-describedby="emailHelp" style="width:300px;height:30px; display: inline; float: left"><p style="float: left;">%</p>
+            </div> <br />
+            <br />
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Which additional license was/were ordered by customer ?</label>
@@ -90,7 +165,14 @@
                 </select>
             </div> <br />
 
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Project Buffer Reservation (if need, please enter number only!)</label>
+                <input type="text" name="buffer" class="form-control" id="buffer" aria-describedby="emailHelp">
+            </div> <br />
+
             <button type="submit" class="btn btn-primary">Submit</button>
+            <br />
+            <br />
         </form>
     </div>
 

@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2651874-fa17-4b9c-831f-467ab492628f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/loesite/html_template/emailSending.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/LoETemplate/Security LoE Template v0.2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/LoETemplate/Security LoE Template v0.2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/downloadpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/downloadpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/firepower_loe_generator.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/firepower_loe_generator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/ise_loe_generator.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/ise_loe_generator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/html_template/stealthwatch_loe_generator.html" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/html_template/stealthwatch_loe_generator.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loesite/loesite/editor/loe_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/editor/loe_editor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/loesite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/loesite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/loesite/loesite/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/output_LoE/cisco_Security_LoE.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/output_LoE/new test_Security_LoE.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loesite/output_LoE/test_Security_LoE.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +180,7 @@
       <updated>1630982165060</updated>
       <workItem from="1630982167757" duration="53516000" />
       <workItem from="1631934621083" duration="302000" />
-      <workItem from="1632104186247" duration="5636000" />
+      <workItem from="1632104186247" duration="29883000" />
     </task>
     <servers />
   </component>
